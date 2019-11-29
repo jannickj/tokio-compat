@@ -284,7 +284,7 @@ impl Runtime {
             .map_err(|e| RunError { inner: e })
     }
 
-    fn enter<F, R>(&mut self, f: F) -> R
+    pub fn enter<F, R>(&mut self, f: F) -> R
     where
         F: FnOnce(&mut current_thread::CurrentThread<Parker>) -> R,
     {
